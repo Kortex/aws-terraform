@@ -8,7 +8,7 @@ terraform {
 }
 
 provider "aws" {
-  region = var.stage
+  region = var.region
 }
 
 locals {
