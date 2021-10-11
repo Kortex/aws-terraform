@@ -7,7 +7,7 @@ on:
 
 jobs:
   terraform-approved:
-    name: 'Terraform Approved'
+    name: 'Terraform Deploy'
     runs-on: ubuntu-latest
 
     defaults:

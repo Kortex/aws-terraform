@@ -1,11 +1,11 @@
-name: 'Terraform'
+name: 'Terraform Check'
 
 on:
   pull_request:
 
 jobs:
-  terraform-approved:
-    name: 'Terraform Approved'
+  terraform-check:
+    name: 'Terraform Check'
     runs-on: ubuntu-latest
 
     defaults:
@@ -21,7 +21,7 @@ jobs:
     strategy:
       matrix:
         env: [ dev, staging, prod ]
-    environment: ${{ matrix.env }}
+    #environment: ${{ matrix.env }}
 
     steps:
 
