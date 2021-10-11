@@ -5,6 +5,12 @@ terraform {
       version = "3.62.0"
     }
   }
+
+  backend "s3" {
+    bucket = "terraform-state-kourt"
+    key = "terraform.tfstate"
+    region = "eu-central-1"
+  }
 }
 
 provider "aws" {
