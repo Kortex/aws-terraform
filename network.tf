@@ -38,6 +38,14 @@ resource "aws_subnet" "private_subnet" {
   tags = local.tags
 }
 
+resource "aws_subnet" "private_subnet" {
+  cidr_block = "10.0.3.0/24"
+  vpc_id     = aws_vpc.vpc.id
+  availability_zone = data.aws_availability_zones.zones.names[0]
+  map_public_ip_on_launch = false
+  tags = local.tags
+}
+
 resource "aws_route_table" "public" {
   vpc_id = aws_vpc.vpc.id
   tags = local.tags
