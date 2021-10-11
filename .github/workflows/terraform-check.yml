@@ -21,7 +21,7 @@ jobs:
     strategy:
       matrix:
         env: [ dev, staging, prod ]
-    #environment: ${{ matrix.env }}
+    environment: ${{ matrix.env }}
 
     steps:
 
