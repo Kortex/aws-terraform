@@ -30,6 +30,18 @@ jobs:
         uses: actions/checkout@v2
         id: p_checkout
 
+      - name: Env setup
+        run: |
+          if [[ ${{ secrets.STAGE }} == dev ]]; then
+            echo "DEV!"
+          elif [[ ${{ secrets.STAGE }} == staging ]]; then
+            echo "STAGING!"
+          elif [[ ${{ secrets.STAGE }} == prod ]]; then
+            echo "PROD!"
+          else
+            echo "FAIL!"
+          fi
+
       # Setup terraform action here
       - name: Terraform Setup
         uses: hashicorp/setup-terraform@v1
