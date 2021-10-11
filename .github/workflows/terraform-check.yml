@@ -1,11 +1,11 @@
-name: 'Terraform'
+name: 'Terraform Check'
 
 on:
   pull_request:
 
 jobs:
-  terraform-approved:
-    name: 'Terraform Approved'
+  terraform-check:
+    name: 'Terraform Check'
     runs-on: ubuntu-latest
 
     defaults:
@@ -29,6 +29,18 @@ jobs:
       - name: Checkout Project
         uses: actions/checkout@v2
         id: p_checkout
+
+      - name: Env setup
+        run: |
+          if [[ ${{ secrets.STAGE }} == dev ]]; then
+            echo "DEV!"
+          elif [[ ${{ secrets.STAGE }} == staging ]]; then
+            echo "STAGING!"
+          elif [[ ${{ secrets.STAGE }} == prod ]]; then
+            echo "PROD!"
+          else
+            echo "FAIL!"
+          fi
 
       # Setup terraform action here
       - name: Terraform Setup
