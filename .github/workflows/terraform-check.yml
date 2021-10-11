@@ -2,9 +2,6 @@ name: 'Terraform'
 
 on:
   pull_request:
-  push:
-    branches:
-      - main
 
 jobs:
   terraform-approved:
@@ -49,8 +46,3 @@ jobs:
       - name: Terraform Plan
         run: terraform plan -input=false -out=tfplan
         id: tf_plan
-
-      - name: Terraform Apply
-        run: terraform apply -auto-approve -input=false tfplan
-        id: tf_apply
-        if: github.event_name == 'push' && github.ref == 'main'

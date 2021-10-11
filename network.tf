@@ -38,7 +38,7 @@ resource "aws_subnet" "private_subnet" {
   tags = local.tags
 }
 
-resource "aws_subnet" "private_subnet" {
+resource "aws_subnet" "private_subnet_2" {
   cidr_block = "10.0.3.0/24"
   vpc_id     = aws_vpc.vpc.id
   availability_zone = data.aws_availability_zones.zones.names[0]
